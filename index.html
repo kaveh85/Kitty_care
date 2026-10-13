@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Kitty Care</title>
+  <meta name="description" content="Zorg voor je eigen kat, speel minigames, verdien munten en richt het kattenhuis in!">
+  <meta name="theme-color" content="#ffb86b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Kitty Care">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Startscherm -->
+    <section id="screen-start" class="screen start-screen hidden">
+      <div class="start-card">
+        <h1 class="logo">Kitty Care <span>🐾</span></h1>
+        <p class="start-sub">Zorg voor je eigen kat, speel spelletjes en verdien munten!</p>
+        <div id="start-cat" class="start-cat"></div>
+        <label class="field-label" for="cat-name">Hoe heet je kat?</label>
+        <input id="cat-name" class="text-input" maxlength="14" placeholder="Bijv. Minoes" autocomplete="off">
+        <div class="field-label">Kies een vachtkleur</div>
+        <div id="color-picker" class="color-picker"></div>
+        <button id="btn-start" class="btn btn-primary btn-big">Start het avontuur!</button>
+      </div>
+    </section>
+
+    <!-- Hoofdspel -->
+    <section id="screen-game" class="screen hidden">
+      <header class="topbar">
+        <button id="btn-level" class="pill level-pill" aria-label="Level">⭐ <span id="top-level">1</span></button>
+        <div id="top-name" class="cat-title">Minoes</div>
+        <div class="pill coin-pill">🪙 <span id="top-coins">0</span></div>
+        <button id="btn-settings" class="icon-btn" aria-label="Instellingen">⚙️</button>
+      </header>
+
+      <main id="tabs">
+        <!-- HUIS -->
+        <div id="tab-huis" class="tab active">
+          <div id="stats" class="stats"></div>
+          <div id="scene" class="scene"></div>
+          <button id="task-strip" class="task-strip"></button>
+          <div id="actions" class="actions"></div>
+        </div>
+
+        <!-- LEVELS -->
+        <div id="tab-levels" class="tab">
+          <h2 class="tab-title">Levels</h2>
+          <div id="level-current" class="card"></div>
+          <div id="level-map" class="level-map"></div>
+        </div>
+
+        <!-- SPELLEN -->
+        <div id="tab-spellen" class="tab">
+          <h2 class="tab-title">Spelletjes</h2>
+          <p class="tab-sub">Speel minigames om munten 🪙 te verdienen!</p>
+          <div id="game-list" class="game-list"></div>
+        </div>
+
+        <!-- WINKEL -->
+        <div id="tab-winkel" class="tab">
+          <h2 class="tab-title">Winkel</h2>
+          <div id="shop-cats" class="shop-cats"></div>
+          <div id="shop-list" class="shop-list"></div>
+        </div>
+      </main>
+
+      <nav class="bottomnav">
+        <button data-tab="huis" class="nav-btn active"><span>🏠</span>Huis</button>
+        <button data-tab="levels" class="nav-btn"><span>⭐</span>Levels</button>
+        <button data-tab="spellen" class="nav-btn"><span>🎮</span>Spellen</button>
+        <button data-tab="winkel" class="nav-btn"><span>🛒</span>Winkel</button>
+      </nav>
+    </section>
+
+    <!-- Minigame overlay -->
+    <section id="minigame" class="minigame hidden">
+      <header class="mg-header">
+        <button id="mg-close" class="icon-btn" aria-label="Sluiten">✖️</button>
+        <div id="mg-title" class="mg-title"></div>
+        <div id="mg-hud" class="mg-hud"></div>
+      </header>
+      <div id="mg-body" class="mg-body"></div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-card" id="modal-card"></div>
+    </div>
+
+    <div id="toasts" class="toasts"></div>
+    <div id="confetti" class="confetti"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/cat.js"></script>
+  <script src="js/minigames.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
